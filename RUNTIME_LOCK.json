@@ -1,0 +1,16 @@
+{
+  "vendor": "Eclipse Temurin",
+  "version": "21.0.11+10-LTS",
+  "architecture": "windows-x64",
+  "archive": "OpenJDK21U-jdk_x64_windows_hotspot_21.0.11_10.zip",
+  "sha256": "d3625e7cadf23787ea540229544b6e2ab494b3b54da1801879e583e1dfee0a64",
+  "modules": [
+    "java.base",
+    "java.desktop",
+    "java.instrument",
+    "java.logging",
+    "java.management",
+    "java.naming",
+    "jdk.unsupported"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "engineVersion": "1.7.6-fishtongue.1",
+  "protocolVersion": 1,
+  "upstreamRepository": "https://github.com/def-gthill/lexurgy",
+  "upstreamCommit": "fa5027711cba3cd6a3f4b6defd0d38181fa98cd4",
+  "javaRuntime": "Eclipse Temurin 21 LTS",
+  "artifact": "fishtongue-engine-windows-x64.zip"
+}

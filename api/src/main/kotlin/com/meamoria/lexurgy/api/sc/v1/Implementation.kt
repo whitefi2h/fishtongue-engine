@@ -76,6 +76,13 @@ fun pollScv1(jobId: String): PollResponse {
     }
 }
 
+fun cancelScv1(jobId: String): Boolean {
+    val uuid = runCatching { UUID.fromString(jobId) }.getOrNull() ?: return false
+    val job = soundChangerJobs.remove(uuid) ?: return false
+    job.cancel()
+    return true
+}
+
 fun removeExpiredSessions(timeoutSettings: TimeoutSettings, logger: Logger) {
     logger.info("Jobs already running: ${soundChangerJobs.size}")
     logger.info("Max memory: ${Runtime.getRuntime().maxMemory()}B")
@@ -115,6 +122,9 @@ private class SoundChangerJob private constructor (
     @Volatile
     private var _result: Response? = null
 
+    @Volatile
+    private var worker: Thread? = null
+
     fun start(): Response? {
         val latch = CountDownLatch(1)
         val thread = Thread {
@@ -132,6 +142,7 @@ private class SoundChangerJob private constructor (
             }
             latch.countDown()
         }
+        worker = thread
         thread.start()
 
         timer.schedule((timeoutSettings.requestTimeoutSeconds * 1000).toLong()) {
@@ -143,6 +154,10 @@ private class SoundChangerJob private constructor (
 
     val result
         get() = _result
+
+    fun cancel() {
+        worker?.interrupt()
+    }
 }
 
 private fun runScv1Using(

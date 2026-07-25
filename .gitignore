@@ -5,6 +5,8 @@
 /core/build
 /cli/build
 /api/build
+/desktop-api/build
+/dist
 
 # Platform noise
 .DS_Store
