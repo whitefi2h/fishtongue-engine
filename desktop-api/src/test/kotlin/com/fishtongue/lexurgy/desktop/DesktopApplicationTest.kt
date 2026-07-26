@@ -19,7 +19,7 @@ class DesktopApplicationTest {
                 arrayOf(
                     "host=0.0.0.0",
                     "port=0",
-                    "protocolVersion=1",
+                    "protocolVersion=2",
                     "authToken=${"a".repeat(43)}",
                 )
             )
@@ -33,7 +33,7 @@ class DesktopApplicationTest {
                 arrayOf(
                     "host=127.0.0.1",
                     "port=0",
-                    "protocolVersion=2",
+                    "protocolVersion=1",
                     "authToken=${"a".repeat(43)}",
                 )
             )

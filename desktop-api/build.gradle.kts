@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "com.fishtongue"
-version = "1.7.6-fishtongue.1"
+version = "1.7.6-fishtongue.2"
 
 application {
     mainClass.set("com.fishtongue.lexurgy.desktop.DesktopApplicationKt")

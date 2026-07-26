@@ -8,7 +8,7 @@ desktop behavior lives in the `desktop-api` module.
 The desktop process starts with:
 
 ```text
-host=127.0.0.1 port=0 protocolVersion=1 authToken=<256-bit token>
+host=127.0.0.1 port=0 protocolVersion=2 authToken=<256-bit token>
 ```
 
 Only loopback binding is accepted. Every HTTP request requires the generated

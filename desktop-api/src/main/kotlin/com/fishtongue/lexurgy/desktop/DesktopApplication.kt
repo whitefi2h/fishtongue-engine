@@ -31,8 +31,8 @@ import java.net.InetAddress
 import java.net.ServerSocket
 import kotlin.system.exitProcess
 
-const val DESKTOP_PROTOCOL_VERSION = 1
-const val ENGINE_VERSION = "1.7.6-fishtongue.1"
+const val DESKTOP_PROTOCOL_VERSION = 2
+const val ENGINE_VERSION = "1.7.6-fishtongue.2"
 
 data class DesktopArguments(
     val host: String,
@@ -162,6 +162,12 @@ fun Application.desktopModule(authToken: String, requestShutdown: () -> Unit = {
         }
         post("/inflectv1") {
             call.runInflectV1()
+        }
+        post("/wordgenv1/validate") {
+            call.validateWordGeneration()
+        }
+        post("/wordgenv1/generate") {
+            call.generateWords()
         }
         post("/shutdown") {
             call.respond(mapOf("status" to "shuttingDown"))
